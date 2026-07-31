@@ -1,0 +1,17 @@
+# Santral kayıt defteri: her plant_id için tek doğruluk kaynağı (lat/lon/capacity_mw).
+# main.py ve daily_datapull.yml buradan okur; --lat/--lon elle girilmez.
+#
+# Yeni bir santral eklemek için buraya bir girdi daha ekleyin, plants.py
+# veya main.py'da başka bir değişiklik gerekmez.
+
+2579:
+  name: "Kalyon Karapınar YEKA-1 GES"
+  # Konya/Karapınar, kaynak: tr.wikipedia.org/wiki/Karapınar_Güneş_Enerjisi_Santralı
+  lat: 37.7908
+  lon: 33.5847
+  # AC (şebeke bağlantı) kapasitesi = 1000 MW; bu, production_mwh'nin (gerçek
+  # şebeke enjeksiyonu) fiilen üstüne çıkamayacağı tavan, bu yüzden capacity_mw
+  # olarak bunu kullanıyoruz. Panel (DC) nameplate kapasitesi kaynaklara göre
+  # 1350 MWp - inverter clipping'in nedeni bu fark (DC>AC), fiziksel modelin
+  # ac_capacity_mw kalibrasyonu bunu ayrıca tahmin ediyor zaten.
+  capacity_mw: 1000.0
